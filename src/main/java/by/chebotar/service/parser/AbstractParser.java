@@ -9,8 +9,9 @@ public abstract class AbstractParser implements TextParser<TextStructure> {
 
   public abstract TextStructure parse(String token);
 
-  public TextParser<TextStructure> linkWith(TextParser next) {
-    return null;
+  public TextParser<TextStructure> linkWith(TextParser<TextStructure> next) {
+    this.next = next;
+    return next;
   }
 
   protected TextStructure nextParse(String token){

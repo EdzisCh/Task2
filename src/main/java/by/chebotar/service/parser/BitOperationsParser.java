@@ -1,12 +1,14 @@
 package by.chebotar.service.parser;
 
+import by.chebotar.bean.Token;
 import by.chebotar.interfaces.TextStructure;
-import java.util.regex.Pattern;
 
+/**
+ * This parser should be in the end of the chain
+ */
 public class BitOperationsParser extends AbstractParser{
 
-  private final static Pattern PATTERN =Pattern.compile("[^a-b]");
   public TextStructure parse(String token) {
-    return null;
+    return new Token("dick");
   }
 }

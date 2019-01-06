@@ -5,16 +5,17 @@ import by.chebotar.interfaces.TextStructure;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class TokenParser extends AbstractParser {
+public class TokenWithSymbolParser extends AbstractParser {
 
-  private static final Pattern PATTERN = Pattern.compile("(\\w*)");
+  private static final Pattern PATTERN = Pattern.compile("(\\w*)(,|:|;)");
   private Matcher matcher;
 
+  @Override
   public TextStructure parse(String token) {
     matcher = PATTERN.matcher(token);
-    if (matcher.matches()) {
+    if(matcher.matches()){
       return new Token(token);
-    } else {
+    }else{
       return nextParse(token);
     }
   }

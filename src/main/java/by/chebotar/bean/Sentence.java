@@ -2,16 +2,21 @@ package by.chebotar.bean;
 
 import by.chebotar.interfaces.TextStructure;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-public class Sentence extends Paragraph {
+public class Sentence extends Text {
 
   private List<TextStructure> children = new ArrayList<TextStructure>();
 
+  public List<TextStructure> getChildren() {
+    return children;
+  }
+
   public String getText() {
     StringBuilder stringBuilder = new StringBuilder();
-    for (int i = 0; i < children.size(); i++) {
-      stringBuilder.append(children.get(i).getText()).append(" ");
+    for (TextStructure child : children) {
+      stringBuilder.append(child.getText()).append(" ");
     }
     return stringBuilder.toString();
   }
@@ -21,9 +26,7 @@ public class Sentence extends Paragraph {
   }
 
   public void setChildren(TextStructure... children){
-    for (TextStructure child : children) {
-      this.children.add(child);
-    }
+    this.children.addAll(Arrays.asList(children));
   }
 
   public boolean removeChildren(TextStructure child){
