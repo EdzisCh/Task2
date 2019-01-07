@@ -13,6 +13,10 @@ public class Sentence extends Text {
     return children;
   }
 
+  public TextStructure getChild(int index) {
+    return children.get(index);
+  }
+
   public String getText() {
     StringBuilder stringBuilder = new StringBuilder();
     for (TextStructure child : children) {

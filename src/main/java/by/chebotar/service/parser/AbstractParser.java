@@ -5,7 +5,7 @@ import by.chebotar.interfaces.TextStructure;
 
 public abstract class AbstractParser implements TextParser<TextStructure> {
 
-  private TextParser next;
+  private TextParser<TextStructure> next;
 
   public abstract TextStructure parse(String token);
 
@@ -16,7 +16,7 @@ public abstract class AbstractParser implements TextParser<TextStructure> {
 
   protected TextStructure nextParse(String token){
     if(next != null){
-      return (TextStructure) next.parse(token);
+      return next.parse(token);
     } else {
       return null;
     }

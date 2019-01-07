@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 
 public class TokenWithSymbolParser extends AbstractParser {
 
-  private static final Pattern PATTERN = Pattern.compile("(\\w*)(,|:|;)");
+  private static final Pattern PATTERN = Pattern.compile("(\\w*)[,|:|;]");
   private Matcher matcher;
 
   @Override

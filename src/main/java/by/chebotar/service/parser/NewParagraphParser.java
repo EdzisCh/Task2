@@ -7,7 +7,7 @@ public class NewParagraphParser extends AbstractParser {
 
   @Override
   public TextStructure parse(String token) {
-    if(token.equals(null) || token.equals("")){
+    if(token == null || token.equals("") || token.equals("\t")){
       return new Token(" ");
     } else {
       return nextParse(token);

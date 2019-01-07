@@ -20,7 +20,7 @@ public class Text implements TextStructure {
   public String getText() {
     StringBuilder stringBuilder = new StringBuilder();
     for (TextStructure child : children) {
-      stringBuilder.append(child.getText()).append(" ");
+      stringBuilder.append(child.getText());
     }
     return stringBuilder.toString();
   }
