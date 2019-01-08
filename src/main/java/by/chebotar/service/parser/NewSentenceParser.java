@@ -10,12 +10,15 @@ public class NewSentenceParser extends AbstractParser {
 
   private static final Pattern PATTERN = Pattern.compile("(\\w*)[.|!|\\?]");
   private Matcher matcher;
+  private Sentence sentence;
 
   @Override
   public TextStructure parse(String token) {
     matcher = PATTERN.matcher(token);
-    if (matcher.matches()) {;
-      return new Token(token);
+    if (matcher.matches()) {
+      sentence = new Sentence();
+      sentence.setChild(new Token(token));
+      return sentence;
     } else {
       return nextParse(token);
     }

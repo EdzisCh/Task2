@@ -2,7 +2,6 @@ package by.chebotar.service;
 
 import by.chebotar.bean.Sentence;
 import by.chebotar.bean.Text;
-import by.chebotar.bean.Token;
 import by.chebotar.exception.InvalidPathException;
 import by.chebotar.interfaces.TextParser;
 import by.chebotar.interfaces.TextStructure;
@@ -61,9 +60,9 @@ public class TextService {
     }
   }
 
-  public String getText(){
+  public Text getText(){
     init();
-    return text.getText();
+    return text;
   }
 
   public List<String> getSortedTextInEverySentence(){

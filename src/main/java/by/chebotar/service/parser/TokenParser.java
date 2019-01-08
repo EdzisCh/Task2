@@ -8,11 +8,14 @@ import java.util.regex.Pattern;
 public class TokenParser extends AbstractParser {
 
   private static final Pattern PATTERN = Pattern.compile("(\\w*)");
-  private Matcher matcher;
+  private static final Pattern PATTERN_WITH_BRACKETS = Pattern.compile("\\((\\w*)\\)");
+  private Matcher firstMatcher;
+  private Matcher secondMatcher;
 
   public TextStructure parse(String token) {
-    matcher = PATTERN.matcher(token);
-    if (matcher.matches()) {
+    firstMatcher = PATTERN.matcher(token);
+    secondMatcher = PATTERN_WITH_BRACKETS.matcher(token);
+    if (firstMatcher.matches() || secondMatcher.matches()) {
       return new Token(token);
     } else {
       return nextParse(token);
